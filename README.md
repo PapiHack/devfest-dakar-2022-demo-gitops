@@ -15,7 +15,7 @@ You'll find the following directories in this project :
 I often use [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create local kubernetes cluster for experimenting and learning new stuff. Run the following command in order to create one :
 
 ```bash
-kind create --config infra/cluster-setup.yaml --name devfest-dakar-2022
+kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
 ```
 
 - The other folders `dev`, `staging` and `prod` host respectively the k8s manifest files for the [spring-boot demo app](https://gitlab.com/devfest-dakar-2022/demo-app).
