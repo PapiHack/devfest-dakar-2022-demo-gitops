@@ -7,6 +7,9 @@
 
 This repo contains the `GitOps` code of my demo at `DevFest Dakar 2020` on `Continuous Deployment and GitOps in Kubernetes with ArgoCD`.
 
+
+You'll find the slides at <https://meissa-devfest-dakar-2022-prez.netlify.app>.
+
 ## Content
 
 You'll find the following directories in this project :
