@@ -21,11 +21,8 @@ spec:
             cpu: "500m"
         livenessProbe:
           httpGet:
-            host: devfest-dakar-2022.dev.svc
             port: http
             path: /api/service/healthy
-          initialDelaySeconds: 10
-          period: 5
         readinessProbe:
           httpGet:
             port: 8080
@@ -33,3 +30,4 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+          hostPort: 8080
