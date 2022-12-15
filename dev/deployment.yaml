@@ -28,5 +28,5 @@ spec:
             port: 8080
             path: /api/service/ready
         ports:
-        - name: htttp
+        - name: http
           containerPort: 8080
