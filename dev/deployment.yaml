@@ -24,8 +24,8 @@ spec:
             host: devfest-dakar-2022.dev.svc
             port: http
             path: /api/service/healthy
-          initialDelaySeconds: 20
-          period: 10
+          initialDelaySeconds: 10
+          period: 5
         readinessProbe:
           httpGet:
             port: 8080
