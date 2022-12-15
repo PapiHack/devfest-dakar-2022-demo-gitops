@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devfest-dakar-2022
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      app: devfest-teranga
+  template:
+    metadata:
+      labels:
+        app: devfest-teranga
+    spec:
+      containers:
+      - name: myapp
+        image: papihack/devfest-dakar-demo-app:prod-2002-01
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - name: htttp
+          containerPort: 8080

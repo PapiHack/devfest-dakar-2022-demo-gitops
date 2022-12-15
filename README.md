@@ -15,7 +15,7 @@ You'll find the slides at <https://meissa-devfest-dakar-2022-prez.netlify.app>.
 You'll find the following directories in this project :
 
 - `infra`: contains manifest files in order to setup a local kubernetes cluster.
-I often use [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create local kubernetes cluster for experimenting and learning new stuff. Run the following command in order to create one :
+I often use [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create local kubernetes cluster for experimenting and learning new stuff. You can install it and Run the following command in order to create one :
 
 ```bash
 kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
