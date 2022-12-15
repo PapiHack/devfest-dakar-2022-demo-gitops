@@ -19,6 +19,14 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
+        livenessProbe:
+          httpGet:
+            port: 8080
+            path: /api/service/healthy
+        readinessProbe:
+          httpGet:
+            port: 8080
+            path: /api/service/ready
         ports:
         - name: htttp
           containerPort: 8080
