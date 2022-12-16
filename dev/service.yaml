@@ -4,7 +4,7 @@ metadata:
   name: devfest-dakar-2022
   namespace: dev
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
       app: devfest-teranga
   ports:
