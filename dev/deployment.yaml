@@ -13,7 +13,7 @@ spec:
         app: devfest-teranga
     spec:
       containers:
-      - name: myapp
+      - name: devfest-dakar-app
         image: papihack/devfest-dakar-demo-app:develop-2002-01
         resources:
           limits:
