@@ -74,6 +74,13 @@ kubectl apply -f dev/argo-dev-app.yaml -f staging/argo-staging-app.yaml -f prod/
 
 - Go to the `ArgoCD` dashboard at <https://localhost:8080> and you'll see your deployed apps 😎.
 
+<table>
+    <tr>
+        <td><img src="./screenshots/home.png" /></td>
+        <td><img src="./screenshots/dev-app-viz.png" /></td>
+    </tr>
+</table>
+
 ## Contributing
 
 Feel free to make a PR or report an issue 😃
