@@ -21,7 +21,58 @@ I often use [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) to create lo
 kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
 ```
 
-- The other folders `dev`, `staging` and `prod` host respectively the k8s manifest files for the [spring-boot demo app](https://gitlab.com/devfest-dakar-2022/demo-app).
+- The other folders `dev`, `staging` and `prod` host respectively the k8s manifest files for the [spring-boot demo app](https://github.com/PapiHack/devfest-dakar-2022-demo-app).
+
+## Up and Running
+
+- First of all, you need to install `kubectl` command line tool for interacting with your k8s cluster. Depending on your system, you can install it from the following link : <https://kubernetes.io/docs/tasks/tools/>.
+
+- Then you can install [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) and create a local k8s cluster by running the following command :
+
+```bash
+kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
+```
+
+- After creating your k8s cluster, now you can install [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) in it :
+
+    - Create a dedicated namespace for `ArgoCD` with the following command :
+
+        ```bash
+        kubectl create namespace argocd
+        ``` 
+    - Then run the command below for deploying `ArgoCD` in your cluster :
+
+        ```bash
+        kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+        ``` 
+
+- Run this command in order to verify if all `ArgoCD` pods are running before going further :
+
+```bash
+kubectl get pods -n argocd
+```
+
+- If all pods are running, you can open a new terminal and use a `port-forwarding` to connect to the API server without exposing the service with the command below :
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+
+🚨 The API server can then be accessed using <https://localhost:8080> 🚨
+
+- In order to access the `ArgoCD` dashboard, you'll need to authenticate yourself. The default `username` is `admin` and the password is stored in a `secret`. So to get the password, open a new terminal and run the command :
+
+```bash
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+```
+
+- Now, you can execute the command below in order to create your `Argo Applications` :
+
+```bash
+kubectl apply -f dev/argo-dev-app.yaml -f staging/argo-staging-app.yaml -f prod/argo-prod-app.yaml
+```
+
+- Go to the `ArgoCD` dashboard at <https://localhost:8080> and you'll see your deployed apps 😎.
 
 ## Contributing
 
