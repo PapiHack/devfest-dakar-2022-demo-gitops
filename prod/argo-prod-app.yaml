@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: devfest-argo-application-dev
+  name: devfest-argo-application-prod
   namespace: argocd
 spec:
   project: default
 
   source:
-    repoURL: https://gitlab.com/devfest-dakar-2022/demo-gitops.git
+    repoURL: https://github.com/PapiHack/devfest-dakar-2022-demo-gitops.git
     targetRevision: HEAD
-    path: dev
+    path: prod
   destination: 
     server: https://kubernetes.default.svc
-    namespace: dev
+    namespace: prod
 
   syncPolicy:
     syncOptions:
