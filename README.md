@@ -81,6 +81,13 @@ kubectl apply -f dev/argo-dev-app.yaml -f staging/argo-staging-app.yaml -f prod/
     </tr>
 </table>
 
+- If you want to clean up and delete the cluster, you can run the following command :
+
+```bash
+kind delete cluster --name devfest-dakar-2022
+```
+
+
 ## Contributing
 
 Feel free to make a PR or report an issue 😃
