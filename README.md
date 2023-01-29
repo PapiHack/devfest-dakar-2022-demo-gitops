@@ -92,6 +92,12 @@ kubectl apply -f dev/argo-dev-app.yaml -f staging/argo-staging-app.yaml -f prod/
     </tr>
 </table>
 
+- You can access to the deployed apps by going to :
+
+    - <http://devfest-app.dev.localhost/devfest-demo/docs> on dev environment
+    - <http://devfest-app.staging.localhost/devfest-demo/docs> on staging environment
+    - <http://devfest-app.prod.localhost/devfest-demo/docs> on prod environment
+
 - If you want to clean up and delete the cluster, you can run the following command :
 
 ```bash
