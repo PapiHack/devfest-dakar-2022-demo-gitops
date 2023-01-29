@@ -38,6 +38,12 @@ kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
 kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
 ```
 
+- Install an [Ingress Controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), for us it will be the [Kubernetes Ingress Nginx](https://kubernetes.io/docs/concepts/services-networking/ingress/) by running :
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+```
+
 - After creating your k8s cluster, now you can install [ArgoCD](https://argo-cd.readthedocs.io/en/stable/) in it :
 
     - Create a dedicated namespace for `ArgoCD` with the following command :
@@ -57,13 +63,13 @@ kind create cluster --config infra/cluster-setup.yaml --name devfest-dakar-2022
 kubectl get pods -n argocd
 ```
 
-- If all pods are running, you can open a new terminal and use a `port-forwarding` to connect to the API server without exposing the service with the command below :
+- If all pods are running, you can open a new terminal and run the command below in order to create an ingress :
 
 ```bash
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl apply -f infra/argo-ingress.yaml
 ```
 
-🚨 The API server can then be accessed using <https://localhost:8080> 🚨
+🚨 The API server can then be accessed using <https://argocd-devfest.localhost> 🚨
 
 - In order to access the `ArgoCD` dashboard, you'll need to authenticate yourself. The default `username` is `admin` and the password is stored in a `secret`. So to get the password, open a new terminal and run the command :
 
@@ -77,7 +83,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 kubectl apply -f dev/argo-dev-app.yaml -f staging/argo-staging-app.yaml -f prod/argo-prod-app.yaml
 ```
 
-- Go to the `ArgoCD` dashboard at <https://localhost:8080> and you'll see your deployed apps 😎.
+- Go to the `ArgoCD` dashboard at <https://argocd-devfest.localhost> and you'll see your deployed apps 😎.
 
 <table>
     <tr>
