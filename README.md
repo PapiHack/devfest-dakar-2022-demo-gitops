@@ -10,7 +10,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-mit-blue?style=for-the-badge&logo=appveyor)](./LICENSE)
 [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-This repo contains the `GitOps` code of my demo at `DevFest Dakar 2020` on `Continuous Deployment and GitOps in Kubernetes with ArgoCD`.
+This repo contains the `GitOps` code of my demo at `DevFest Dakar 2022` on `Continuous Deployment and GitOps in Kubernetes with ArgoCD`.
 
 
 You'll find the slides at <https://meissa-devfest-dakar-2022-prez.netlify.app>.
